@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Twitter, Code2, Cpu, Shield, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroBackground from '@/assets/hero-bg.jpg';
 
@@ -48,6 +48,72 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
+          {/* Animated Profile Image Section */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="relative w-48 h-48 mx-auto mb-8"
+          >
+            {/* Rotating Rings */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 border-2 border-primary/30 rounded-full"
+              style={{ borderTopColor: 'hsl(var(--primary))' }}
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-4 border-2 border-accent/30 rounded-full"
+              style={{ borderBottomColor: 'hsl(var(--accent))' }}
+            />
+            
+            {/* Floating Tech Icons */}
+            {[
+              { icon: Code2, delay: 0, position: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2' },
+              { icon: Cpu, delay: 0.5, position: 'top-1/2 right-0 translate-x-1/2 -translate-y-1/2' },
+              { icon: Shield, delay: 1, position: 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2' },
+              { icon: Zap, delay: 1.5, position: 'top-1/2 left-0 -translate-x-1/2 -translate-y-1/2' },
+            ].map(({ icon: Icon, delay, position }, i) => (
+              <motion.div
+                key={i}
+                animate={{ 
+                  y: [0, -10, 0],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity, 
+                  delay,
+                }}
+                className={`absolute ${position} p-2 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-lg shadow-glow-primary`}
+              >
+                <Icon className="w-5 h-5 text-primary" />
+              </motion.div>
+            ))}
+
+            {/* Profile Image */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-4 border-primary/30 shadow-glow-primary overflow-hidden flex items-center justify-center"
+            >
+              <div className="text-6xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+                IP
+              </div>
+            </motion.div>
+
+            {/* Pulsing Glow */}
+            <motion.div
+              animate={{ 
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute inset-0 rounded-full bg-primary/10 blur-xl"
+            />
+          </motion.div>
+
           {/* Greeting */}
           <motion.div
             initial={{ opacity: 0 }}
