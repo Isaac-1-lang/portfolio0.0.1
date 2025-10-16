@@ -29,7 +29,7 @@ export function Projects() {
     {
       title: 'E-Commerce Dashboard',
       description: 'Full-stack e-commerce platform with real-time analytics and inventory management.',
-      tags: ['Next.js', 'PostgreSQL', 'Stripe', 'Tailwind'],
+      tags: ['Next.js', 'PostgreSQL', 'Stripe', 'Tailwind',"Google Maps","Spring boot","React Native"],
       category: 'web',
       github: '#',
       demo: 'https://shopsphere-frontend.vercel.app/',
@@ -37,7 +37,7 @@ export function Projects() {
     {
       title: 'Waste Classifier',
       description: 'It is an AI model which is able to classify wastes in different categories using different algorithms like CV or image scanning!',
-      tags: ['Python', 'Tensorflow', 'CV','YoloV8'],
+      tags: ['Python', 'Tensorflow', 'CV','YoloV8',"Pytorch","React Native","ReactJS"],
       category: 'ai',
       github: 'https://github.com/Isaac-1-lang/Waste_Classifier_Modal',
       demo: '#',
@@ -61,10 +61,34 @@ export function Projects() {
     {
       title: 'Blockchain DApp',
       description: 'Decentralized application for secure transactions using Solidity and Web3.',
+      tags: ['Solidity', 'React', 'Web3.js',"Smart Contracts"],
+      category: 'web',
+      github: 'https://github.com/Isaac-1-lang/Blockchain_Gaming',
+      demo: '#',
+    },
+    {
+      title: 'Blockchain Gaming DApp',
+      description: 'Decentralized application for playing games but not completed but it will be able to allow people to play on different servers and make some transactions',
       tags: ['Solidity', 'React', 'Web3.js'],
       category: 'web',
       github: 'https://github.com/Isaac-1-lang/Blockchain_Gaming',
       demo: '#',
+    },
+    {
+      title: 'Green IQ',
+      description: 'It is a mobile app which will be able to create a smooth supply chain between house holders and recycling companies in collecting and recycling wastes',
+      tags: ['React Native', 'ExpressJS', 'Tensorflow',"Google Maps"],
+      category: 'web',
+      github: 'https://github.com/Isaac-1-lang/Green-IQ',
+      demo: '#',
+    },
+    {
+      title: 'Ciphera',
+      description: 'It is a web based app and browser-based extension which is used to prevent sending of sensitive data to LLMs which might cause breaching as lose digital confidentiality',
+      tags: ['MERN Stack', 'Google Models',"LLM APIs"],
+      category: 'web',
+      github: 'https://github.com/Isaac-1-lang/ciphera-data-guard',
+      demo: 'ciphera.onrender.com',
     },
   ];
 
@@ -176,6 +200,19 @@ export function Projects() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* More Button */}
+          <div className="flex justify-center mt-12">
+            <a
+              href="https://github.com/Isaac-1-lang"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow-primary"
+            >
+              <Github className="h-4 w-4" />
+              More on GitHub
+            </a>
           </div>
         </motion.div>
       </div>

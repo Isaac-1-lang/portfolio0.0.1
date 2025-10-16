@@ -16,10 +16,10 @@ export function Achievements() {
       color: 'text-accent',
     },
     {
-      year: '2024',
+      year: '2025',
       icon: Medal,
-      title: 'E_15TH iCONIC Contest',
-      description: 'Showcased innovative solutions in embedded systems and IoT development.',
+      title: 'e_15th Iconic Contest',
+      description: 'Showcased innovative solutions in Mobile Apps development and SDG goals promotion and solving',
       color: 'text-primary',
     },
     {
@@ -30,10 +30,10 @@ export function Achievements() {
       color: 'text-accent-variant',
     },
     {
-      year: '2023-Present',
+      year: '2024-Present',
       icon: Target,
       title: '20+ Projects Completed',
-      description: 'Delivered diverse projects across AI/ML, cybersecurity, and full-stack development.',
+      description: 'Delivered diverse projects across AI/ML, Mobile and web-stack development.',
       color: 'text-primary',
     },
   ];
