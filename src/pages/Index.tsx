@@ -5,6 +5,7 @@ import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { Achievements } from '@/components/sections/Achievements';
 import { Contact } from '@/components/sections/Contact';
+import { Team } from '@/components/sections/Team';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import {
   Github,
@@ -36,6 +37,7 @@ const Index = () => {
         <Skills />
         <Projects />
         <Achievements />
+        <Team />
         <Contact />
         
         {/* Footer */}

@@ -11,15 +11,33 @@ export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', message: '' });
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch((import.meta as any).env.VITE_API_BASE?.replace(/\/$/, '') + '/api/contact' || 'http://localhost:4000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to send message');
+      }
+      toast({
+        title: 'Message Sent!',
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err: any) {
+      toast({ title: 'Failed to send', description: err.message || 'Please try again later.' });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -86,6 +104,19 @@ export function Contact() {
                   />
                 </div>
                 <div>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    placeholder="How can I help?"
+                    required
+                    className="bg-background border-border focus:border-primary"
+                  />
+                </div>
+                <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email
                   </label>
@@ -113,9 +144,9 @@ export function Contact() {
                     className="bg-background border-border focus:border-primary resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full shadow-glow-primary" size="lg">
+                <Button type="submit" className="w-full shadow-glow-primary" size="lg" disabled={submitting}>
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </motion.div>
