@@ -9,8 +9,8 @@ Requirements: Node.js and npm.
 Steps:
 
 ```sh
-git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
+git clone https://github.com/Isaac-1-lang/portfolio0.0.1
+cd niylabs-interactive-hub
 npm i
 npm run dev
 ```

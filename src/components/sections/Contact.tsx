@@ -23,10 +23,10 @@ export function Contact() {
   };
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub', color: 'hover:text-primary' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-primary' },
-    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-accent' },
-    { icon: Mail, href: 'mailto:isaac@example.com', label: 'Email', color: 'hover:text-accent-variant' },
+    { icon: Github, href: 'https://github.com/Isaac-1-lang', label: 'GitHub', color: 'hover:text-primary' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/isaac-niyo-se-b2b3352a9/', label: 'LinkedIn', color: 'hover:text-primary' },
+    { icon: Twitter, href: 'https://x.com/Precieux982', label: 'X', color: 'hover:text-accent' },
+    { icon: Mail, href: 'mailto:isaprecieux112@gmail.com', label: 'Email', color: 'hover:text-accent-variant' },
   ];
 
   return (

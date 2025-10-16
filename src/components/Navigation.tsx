@@ -48,9 +48,10 @@ export function Navigation() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             whileHover={{ scale: 1.05 }}
-            className="text-xl font-bold bg-gradient-hero bg-clip-text text-transparent"
           >
-            ISAAC.DEV
+            <div className="inline-flex items-center justify-center bg-blue-500 p-0.2 rounded-full">
+            <img src="/logoWhite.png" alt="logo" className="w-10 h-10" />
+            </div>
           </motion.a>
 
           {/* Desktop Navigation */}

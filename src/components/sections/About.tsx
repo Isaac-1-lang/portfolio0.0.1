@@ -11,12 +11,12 @@ export function About() {
     {
       icon: Code2,
       title: 'Full-Stack Development',
-      description: 'Expert in React, Next.js, Laravel, Django, and modern web technologies',
+      description: 'Expert in React, Next.js, Laravel, Django, and modern mobile technologies',
     },
     {
       icon: Brain,
       title: 'AI/ML Research',
-      description: 'Specializing in TensorFlow, PyTorch, and neural network architectures',
+      description: 'Specializing in TensorFlow, PyTorch,CV,CNN,RAG and LLM architectures',
     },
     {
       icon: Shield,
@@ -56,24 +56,8 @@ export function About() {
             />
           </div>
 
-          {/* Story */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="max-w-3xl mx-auto mb-16 text-center"
-          >
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I am a passionate full-stack developer and tech innovator from Rwanda Coding Academy. 
-              My journey in technology spans over 2 years, during which I've completed more than 20 projects 
-              across diverse domains including AI/ML, cybersecurity, and embedded systems.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Beyond coding, I'm an active participant in competitive programming and cybersecurity challenges 
-              like PicoCTF 2025 and E_15TH iCONIC contest. I also enjoy public speaking, solving puzzles, 
-              playing chess and football, with creative skills in Figma, Blender, and Adobe tools.
-            </p>
-          </motion.div>
+          {/* Story + Images */}
+          <StoryWithPreview isInView={isInView} />
 
           {/* Highlights Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -99,5 +83,62 @@ export function About() {
         </motion.div>
       </div>
     </section>
+  );
+}
+ 
+function StoryWithPreview({ isInView }: { isInView: boolean }) {
+  const items = [
+    {
+      text: "Junior full-stack developer and AI enthusiast from Rwanda, passionate about creating intelligent solutions for education and daily life.",
+      img: "/innovation.jpeg",
+    },
+    {
+      text: "Working with JavaScript, React, Node.js, Python, Django, and React Native. Currently exploring ML, AI, and C++ systems programming.",
+      img: "/codingAndSe.jpeg",
+    },
+    {
+      text: "Built AI assistants, waste classification systems, and e-commerce platforms focused on learning and community impact.",
+      img: "/projects.jpeg",
+    },
+    {
+      text: "Aspiring cybersecurity engineer and AI researcher, building tools that empower people to learn and create responsibly.",
+      img: "/Apakah goal Anda_.jpeg",
+    },
+    {
+      text: "Active in competitive programming and CTF competitions. Enjoy public speaking, chess, football, and strategic problem-solving.",
+      img: "/lifeOutCoding.jpeg",
+    },
+    {
+      text: "Mentor aspiring developers, explore ML training and DevOps, and blend technical skills with creative design using Adobe tools.",
+      img: "/innovation.jpeg",
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {items.map((item, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3 + i * 0.1 }}
+          className="flex flex-col"
+        >
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            className="rounded-lg overflow-hidden border border-border bg-card shadow-sm mb-3"
+          >
+            <img
+              src={item.img}
+              alt={`About section ${i + 1}`}
+              className="w-full h-48 object-cover"
+            />
+          </motion.div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {item.text}
+          </p>
+        </motion.div>
+      ))}
+    </div>
   );
 }

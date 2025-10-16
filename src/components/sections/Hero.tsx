@@ -9,7 +9,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
         <div 
@@ -53,7 +53,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="relative w-48 h-48 mx-auto mb-8"
+            className="relative w-48 h-48 mx-auto mb-12"
           >
             {/* Rotating Rings */}
             <motion.div
@@ -93,14 +93,22 @@ export function Hero() {
               </motion.div>
             ))}
 
-            {/* Profile Image */}
+            {/* Profile Image / Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-4 border-primary/30 shadow-glow-primary overflow-hidden flex items-center justify-center"
             >
-              <div className="text-6xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                IP
-              </div>
+              {/* Light mode: colored logo; Dark mode: white logo */}
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover block dark:hidden"
+              />
+              <img
+                src="/logoWhite.png"
+                alt="Logo"
+                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover hidden dark:block"
+              />
             </motion.div>
 
             {/* Pulsing Glow */}
@@ -121,9 +129,8 @@ export function Hero() {
             transition={{ delay: 0.2 }}
             className="mb-4"
           >
-            <span className="text-primary text-lg font-medium">Hello, I'm</span>
+            <span className="text-primary text-lg font-medium">Yo!, I'm</span>
           </motion.div>
-
           {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -152,7 +159,7 @@ export function Hero() {
             className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
           >
             Passionate tech innovator from Rwanda Coding Academy with 2+ years of experience 
-            and 20+ completed projects in AI/ML, cybersecurity, and full-stack development.
+            and 20+ completed projects in AI/ML, Mobile and full-stack development.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -187,10 +194,10 @@ export function Hero() {
             className="flex gap-4 justify-center"
           >
             {[
-              { icon: Github, href: '#', label: 'GitHub' },
-              { icon: Linkedin, href: '#', label: 'LinkedIn' },
-              { icon: Twitter, href: '#', label: 'Twitter' },
-              { icon: Mail, href: '#', label: 'Email' },
+              { icon: Github, href: 'https://github.com/Isaac-1-lang', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/niyobyose-isaac-precieux-339369380/', label: 'LinkedIn' },
+              { icon: Twitter, href: 'https://x.com/Precieux982', label: 'Twitter' },
+              { icon: Mail, href: 'mailto:isaprecieux112@gmail.com', label: 'Email' },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
