@@ -84,7 +84,7 @@ export function Achievements() {
                   </motion.div>
 
                   {/* Content */}
-                  <div className="flex-1 bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-glow-primary transition-all">
+                  <div className="flex-1 bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-sm transition-all">
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <h3 className="text-xl font-bold">{achievement.title}</h3>
                       <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">

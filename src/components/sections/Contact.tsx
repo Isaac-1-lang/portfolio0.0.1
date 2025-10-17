@@ -87,7 +87,7 @@ export function Contact() {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="bg-card border border-border rounded-xl p-8 hover:border-primary hover:shadow-glow-primary transition-all"
+              className="bg-card border border-border rounded-xl p-8 hover:border-primary hover:shadow-sm transition-all"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -144,7 +144,7 @@ export function Contact() {
                     className="bg-background border-border focus:border-primary resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full shadow-glow-primary" size="lg" disabled={submitting}>
+                <Button type="submit" className="w-full shadow-sm" size="lg" disabled={submitting}>
                   <Send className="mr-2 h-4 w-4" />
                   {submitting ? 'Sending...' : 'Send Message'}
                 </Button>
@@ -158,7 +158,7 @@ export function Contact() {
               transition={{ delay: 0.4 }}
               className="space-y-8"
             >
-              <div className="bg-card border border-border rounded-xl p-8 hover:border-primary hover:shadow-glow-primary transition-all">
+              <div className="bg-card border border-border rounded-xl p-8 hover:border-primary hover:shadow-sm transition-all">
                 <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
                 <p className="text-muted-foreground mb-6">
                   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
@@ -179,7 +179,7 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="bg-card border border-border rounded-xl p-8 hover:border-primary hover:shadow-glow-primary transition-all">
+              <div className="bg-card border border-border rounded-xl p-8 hover:border-primary hover:shadow-sm transition-all">
                 <h3 className="text-xl font-bold mb-4">Quick Facts</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start gap-2">

@@ -125,7 +125,7 @@ export function Skills() {
                   key={category.id}
                   variant={activeCategory === category.id ? 'default' : 'outline'}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`${activeCategory === category.id ? 'shadow-glow-primary' : 'hover:border-primary'} gap-2`}
+                  className={`${activeCategory === category.id ? 'shadow-sm' : 'hover:border-primary'} gap-2`}
                 >
                   {Icon && <Icon className="h-4 w-4" />}
                   {category.label}
@@ -144,7 +144,7 @@ export function Skills() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ delay: index * 0.03, duration: 0.4 }}
                 whileHover={{ scale: 1.03, y: -5 }}
-                className="bg-card border border-border rounded-xl p-5 hover:border-primary hover:shadow-glow-primary transition-all group"
+                className="bg-card border border-border rounded-xl p-5 hover:border-primary hover:shadow-sm transition-all group"
               >
                 <div className="flex justify-between items-start mb-3">
                   <div className="flex-1">

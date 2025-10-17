@@ -142,7 +142,7 @@ export function Projects() {
                 key={filter.id}
                 variant={activeFilter === filter.id ? 'default' : 'outline'}
                 onClick={() => setActiveFilter(filter.id)}
-                className={activeFilter === filter.id ? 'shadow-glow-primary' : 'hover:border-primary'}
+                className={activeFilter === filter.id ? 'shadow-sm' : 'hover:border-primary'}
               >
                 {filter.label}
               </Button>
@@ -158,7 +158,7 @@ export function Projects() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 + index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="bg-card border border-border rounded-xl overflow-hidden group hover:border-primary hover:shadow-glow-primary transition-all"
+                className="bg-card border border-border rounded-xl overflow-hidden group hover:border-primary hover:shadow-sm transition-all"
               >
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
@@ -208,7 +208,7 @@ export function Projects() {
               href="https://github.com/Isaac-1-lang"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 shadow-glow-primary"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm"
             >
               <Github className="h-4 w-4" />
               More on GitHub

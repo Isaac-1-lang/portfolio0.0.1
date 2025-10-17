@@ -16,28 +16,7 @@ export function Hero() {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: `url(${heroBackground})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
         
-        {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 1, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
       </div>
 
       {/* Content */}
@@ -68,35 +47,11 @@ export function Hero() {
               className="absolute inset-4 border-2 border-accent/30 rounded-full"
               style={{ borderBottomColor: 'hsl(var(--accent))' }}
             />
-            
-            {/* Floating Tech Icons */}
-            {[
-              { icon: Code2, delay: 0, position: 'top-0 left-1/2 -translate-x-1/2 -translate-y-1/2' },
-              { icon: Cpu, delay: 0.5, position: 'top-1/2 right-0 translate-x-1/2 -translate-y-1/2' },
-              { icon: Shield, delay: 1, position: 'bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2' },
-              { icon: Zap, delay: 1.5, position: 'top-1/2 left-0 -translate-x-1/2 -translate-y-1/2' },
-            ].map(({ icon: Icon, delay, position }, i) => (
-              <motion.div
-                key={i}
-                animate={{ 
-                  y: [0, -10, 0],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  delay,
-                }}
-                className={`absolute ${position} p-2 bg-card/80 backdrop-blur-sm border border-primary/20 rounded-lg shadow-glow-primary`}
-              >
-                <Icon className="w-5 h-5 text-primary" />
-              </motion.div>
-            ))}
 
             {/* Profile Image / Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border-4 border-primary/30 shadow-glow-primary overflow-hidden flex items-center justify-center"
+              className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border-2 border-primary/20 shadow-sm overflow-hidden flex items-center justify-center"
             >
               {/* Light mode: colored logo; Dark mode: white logo */}
               <img
@@ -110,16 +65,6 @@ export function Hero() {
                 className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover hidden dark:block"
               />
             </motion.div>
-
-            {/* Pulsing Glow */}
-            <motion.div
-              animate={{ 
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 rounded-full bg-primary/10 blur-xl"
-            />
           </motion.div>
 
           {/* Greeting */}
@@ -172,7 +117,7 @@ export function Hero() {
             <Button
               size="lg"
               onClick={() => scrollToSection('projects')}
-              className="bg-primary hover:bg-primary/90 shadow-glow-primary"
+              className="bg-primary hover:bg-primary/90 shadow-sm"
             >
               View Projects
             </Button>
@@ -204,7 +149,7 @@ export function Hero() {
                 href={href}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full bg-card border border-border hover:border-primary hover:shadow-glow-primary transition-all"
+                className="p-3 rounded-full bg-card border border-border hover:border-primary hover:shadow-sm transition-all"
                 aria-label={label}
               >
                 <Icon className="h-5 w-5" />

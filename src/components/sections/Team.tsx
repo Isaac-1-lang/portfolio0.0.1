@@ -175,7 +175,7 @@ export function Team() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + idx * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary hover:shadow-glow-primary transition-all"
+                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary hover:shadow-sm transition-all"
               >
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4">

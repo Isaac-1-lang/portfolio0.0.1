@@ -68,7 +68,7 @@ export function About() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 + index * 0.1 }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-glow-primary transition-all"
+                className="bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-sm transition-all"
               >
                 <div className="mb-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
