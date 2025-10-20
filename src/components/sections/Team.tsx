@@ -18,6 +18,20 @@ type Collaborator = {
 };
 
 const collaborators: Collaborator[] = [
+  
+  {
+    name: 'Happy David',
+    role: 'Communication and Team work skills',
+    avatar: '/download.jpeg',
+    links: {
+      github: 'https://github.com/gravityz0',
+      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
+      x: 'https://www.instagram.com/direct/t/17844646124815562/',
+      website: '',
+    },
+    contributions: ['Smart work', 'Collaboration'],
+    projects: ['School courses'],
+  },
   {
     name: 'RUKUNDO Furaha Divin',
     role: 'Full Stack Developper',
@@ -134,6 +148,19 @@ const collaborators: Collaborator[] = [
     contributions: ['Backend Development', 'Model Fine tuning'],
     projects: ['Ciphera'],
   },
+  {
+    name: 'Aime Mellevieux',
+    role: 'Client(Brightforth LTD CEO)',
+    avatar: '/chrysostom.png',
+    links: {
+      github: 'https://github.com/I-Josh-pro-grammin',
+      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
+      x:'https://www.instagram.com/u.h.i.r.i.w.e___/'
+    },
+    contributions: ['Providing resources', 'Giving feedback'],
+    projects: ['WorkConnect','Intego Office'],
+  },
+  
 ];
 
 export function Team() {
