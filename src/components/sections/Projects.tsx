@@ -90,6 +90,14 @@ export function Projects() {
       github: 'https://github.com/Isaac-1-lang/ciphera-data-guard',
       demo: 'ciphera.onrender.com',
     },
+    {
+      title: 'YoloV8-Fine-Tuned',
+      description: 'It is a fine-tuned version of YoloV8 model which is able to detect more than 100 types of wastes including plastics, metals, papers etc',
+      tags: ['YoloV8', 'Tensorflow',"Python","CV"],
+      category: 'web',
+      github: 'https://github.com/Isaac-1-lang/ciphera-data-guard',
+      demo: 'ciphera.onrender.com',
+    }
   ];
 
   const filteredProjects = activeFilter === 'all'
