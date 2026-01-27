@@ -97,6 +97,14 @@ export function Projects() {
       category: 'web',
       github: 'https://github.com/Isaac-1-lang/ciphera-data-guard',
       demo: 'ciphera.onrender.com',
+    },
+    {
+      title: 'BrainBridge',
+      description: 'It is a platform which is able to connect students with mentors and tutors and help them with their studies and projects',
+      tags: ['Spring Boot', 'ReactJS',"Spring Security","PostgreSQL"],
+      category: 'web',
+      github: 'https://github.com/Isaac-1-lang/BrainBridge',
+      demo: 'https://brainbridge.onrender.com',
     }
   ];
 

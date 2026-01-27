@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Code2, Server, Brain, Shield, Cpu, Palette, Hexagon, Cloud, ExternalLink, Award } from 'lucide-react';
+import { link } from 'fs';
 
 export function Skills() {
   const ref = useRef(null);
@@ -22,28 +23,30 @@ export function Skills() {
   ];
 
   const skills = [
-    { name: 'React', category: 'frontend', level: 90, color: 'from-blue-500 to-cyan-500', link: 'https://react.dev/', cert: '' },
-    { name: 'Next.js', category: 'frontend', level: 50, color: 'from-blue-500 to-cyan-500', link: 'https://nextjs.org/', cert: '' },
+    {name:"Spring Framework",category:'backend',level:20,color: 'from-blue-500 to-cyan-500',link:"https://spring.io/"},
+    {name:"Rust",category:'backend',level:5,color: 'from-blue-500 to-cyan-500',link:"https://rust/"},
+    { name: 'React', category: 'frontend', level: 60, color: 'from-blue-500 to-cyan-500', link: 'https://react.dev/', cert: '' },
+    { name: 'Next.js', category: 'frontend', level: 30, color: 'from-blue-500 to-cyan-500', link: 'https://nextjs.org/', cert: '' },
     { name: 'React Native', category: 'frontend', level: 85, color: 'from-blue-500 to-cyan-500', link: 'https://reactnative.dev/', cert: '' },
-    { name: 'Tailwind CSS', category: 'frontend', level: 95, color: 'from-blue-500 to-cyan-500', link: 'https://tailwindcss.com/', cert: '' },
+    { name: 'Tailwind CSS', category: 'frontend', level: 85, color: 'from-blue-500 to-cyan-500', link: 'https://tailwindcss.com/', cert: '' },
     { name: 'Bootstrap', category: 'frontend', level: 75, color: 'from-blue-500 to-cyan-500', link: 'https://getbootstrap.com/', cert: '' },
     { name: 'Material UI', category: 'frontend', level: 40, color: 'from-blue-500 to-cyan-500', link: 'https://mui.com/', cert: '' },
     { name: 'Bulma', category: 'frontend', level: 40, color: 'from-blue-500 to-cyan-500', link: 'https://chakra-ui.com/', cert: '' },
     { name: 'Materialize', category: 'frontend', level: 40, color: 'from-blue-500 to-cyan-500', link: 'https://mui.com/', cert: '' },
-    { name: 'Laravel', category: 'backend', level: 80, color: 'from-red-500 to-orange-500', link: 'https://laravel.com/', cert: '' },
+    { name: 'Laravel', category: 'backend', level: 50, color: 'from-red-500 to-orange-500', link: 'https://laravel.com/', cert: '' },
     { name: 'PHP', category: 'backend', level: 85, color: 'from-red-500 to-orange-500', link: 'https://www.php.net/', cert: '' },
-    { name: 'Django', category: 'backend', level: 52, color: 'from-green-500 to-emerald-500', link: 'https://www.djangoproject.com/', cert: '' },
+    { name: 'Django', category: 'backend', level: 32, color: 'from-green-500 to-emerald-500', link: 'https://www.djangoproject.com/', cert: '' },
     { name: 'Flask', category: 'backend', level: 65, color: 'from-green-500 to-emerald-500', link: 'https://flask.palletsprojects.com/', cert: '' },
     { name: 'Python', category: 'backend', level: 90, color: 'from-green-500 to-emerald-500', link: 'https://www.python.org/', cert: '' },
     { name: 'C++', category: 'backend', level: 50, color: 'from-purple-500 to-pink-500', link: 'https://isocpp.org/', cert: '' },
     { name: 'TensorFlow', category: 'ai-ml', level: 85, color: 'from-orange-500 to-yellow-500', link: 'https://www.tensorflow.org/', cert: '' },
     { name: 'PyTorch', category: 'ai-ml', level: 53, color: 'from-orange-500 to-yellow-500', link: 'https://pytorch.org/', cert: '' },
     { name: 'Computer Vision', category: 'ai-ml', level: 80, color: 'from-orange-500 to-yellow-500', link: 'https://opencv.org/', cert: '' },
-    { name: 'CNN', category: 'ai-ml', level: 75, color: 'from-orange-500 to-yellow-500', link: '', cert: '' },
+    { name: 'CNN', category: 'ai-ml', level: 45, color: 'from-orange-500 to-yellow-500', link: '', cert: '' },
     { name: 'RAG', category: 'ai-ml', level: 40, color: 'from-orange-500 to-yellow-500', link: '', cert: '' },
     { name: 'LLM', category: 'ai-ml', level: 23, color: 'from-orange-500 to-yellow-500', link: '', cert: '' },
     { name: 'AI Engineering', category: 'ai-ml', level: 60, color: 'from-orange-500 to-yellow-500', link: '', cert: '' },
-    { name: 'Cryptography', category: 'security', level: 88, color: 'from-red-500 to-pink-500', link: '', cert: '' },
+    { name: 'Cryptography', category: 'security', level: 78, color: 'from-red-500 to-pink-500', link: '', cert: '' },
     { name: 'Penetration Testing', category: 'security', level: 50, color: 'from-red-500 to-pink-500', link: 'https://www.offensive-security.com/', cert: '' },
     { name: 'Ethical Hacking', category: 'security', level: 75, color: 'from-red-500 to-pink-500', link: '', cert: '' },
     { name: 'Network Security', category: 'security', level: 70, color: 'from-red-500 to-pink-500', link: '', cert: '' },
@@ -51,7 +54,7 @@ export function Skills() {
     { name: 'Mobile Security', category: 'security', level: 60, color: 'from-red-500 to-pink-500', link: '', cert: '' },
     { name: 'Cloud Security', category: 'security', level: 25, color: 'from-red-500 to-pink-500', link: '', cert: '' },
     { name: 'Arduino', category: 'embedded', level: 85, color: 'from-teal-500 to-cyan-500', link: 'https://www.arduino.cc/', cert: '' },
-    { name: 'MicroPython', category: 'embedded', level: 80, color: 'from-teal-500 to-cyan-500', link: 'https://micropython.org/', cert: '' },
+    { name: 'MicroPython', category: 'embedded', level: 40, color: 'from-teal-500 to-cyan-500', link: 'https://micropython.org/', cert: '' },
     { name: 'Robotics', category: 'embedded', level: 82, color: 'from-teal-500 to-cyan-500', link: '', cert: '' },
     { name: 'Figma', category: 'design', level: 90, color: 'from-purple-500 to-indigo-500', link: 'https://www.figma.com/', cert: '' },
     { name: 'Blender', category: 'design', level: 35, color: 'from-purple-500 to-indigo-500', link: 'https://www.blender.org/', cert: '' },
