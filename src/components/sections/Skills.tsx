@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Code2, Server, Brain, Shield, Cpu, Palette, Hexagon, Cloud, ExternalLink, Award } from 'lucide-react';
+import { Code2, Server, Brain, Shield, Cpu, Palette, Hexagon, Cloud, ExternalLink, Award, Phone } from 'lucide-react';
 
 export function Skills() {
   const ref = useRef(null);
@@ -19,6 +19,7 @@ export function Skills() {
     { id: 'design', label: 'Design', icon: Palette },
     { id: 'blockchain', label: 'Blockchain', icon: Hexagon },
     { id: 'devops', label: 'DevOps', icon: Cloud },
+    { id: 'mobile', label: 'Mobile', icon: Phone },
   ];
 
   const skills = [
@@ -26,7 +27,7 @@ export function Skills() {
     {name:"Rust",category:'backend',level:5,color: 'from-blue-500 to-cyan-500',link:"https://rust/"},
     { name: 'React', category: 'frontend', level: 60, color: 'from-blue-500 to-cyan-500', link: 'https://react.dev/', cert: '' },
     { name: 'Next.js', category: 'frontend', level: 30, color: 'from-blue-500 to-cyan-500', link: 'https://nextjs.org/', cert: '' },
-    { name: 'React Native', category: 'frontend', level: 85, color: 'from-blue-500 to-cyan-500', link: 'https://reactnative.dev/', cert: '' },
+    { name: 'React Native', category: 'mobile', level: 85, color: 'from-blue-500 to-cyan-500', link: 'https://reactnative.dev/', cert: '' },
     { name: 'Tailwind CSS', category: 'frontend', level: 85, color: 'from-blue-500 to-cyan-500', link: 'https://tailwindcss.com/', cert: '' },
     { name: 'Bootstrap', category: 'frontend', level: 75, color: 'from-blue-500 to-cyan-500', link: 'https://getbootstrap.com/', cert: '' },
     { name: 'Material UI', category: 'frontend', level: 40, color: 'from-blue-500 to-cyan-500', link: 'https://mui.com/', cert: '' },
@@ -63,7 +64,6 @@ export function Skills() {
     { name: 'Canva', category: 'design', level: 80, color: 'from-purple-500 to-indigo-500', link: 'https://www.canva.com/', cert: '' },
     { name: 'Solidity', category: 'blockchain', level: 45, color: 'from-indigo-500 to-blue-500', link: 'https://soliditylang.org/', cert: '' },
     { name: 'Docker', category: 'devops', level: 45, color: 'from-sky-500 to-blue-500', link: 'https://www.docker.com/', cert: '' },
-    { name: 'Kubernetes', category: 'devops', level: 40, color: 'from-sky-500 to-blue-500', link: 'https://kubernetes.io/', cert: '' },
     { name: 'CI/CD', category: 'devops', level: 35, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
     { name: 'Linux', category: 'devops', level: 80, color: 'from-sky-500 to-blue-500', link: 'https://www.kernel.org/', cert: '' },
     { name: 'AWS', category: 'devops', level: 30, color: 'from-sky-500 to-blue-500', link: 'https://aws.amazon.com/', cert: '' },
@@ -72,7 +72,9 @@ export function Skills() {
     { name:"GitHub", category: 'devops', level: 95, color: 'from-sky-500 to-blue-500', link: 'https://github.com/', cert: '' },
     { name:"GitLab", category: 'devops', level: 30, color: 'from-sky-500 to-blue-500', link: 'https://gitlab.com/', cert: '' },
     { name:"Automation", category: 'devops', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
-    { name:"Testing", category: 'devops', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
+    { name:"JUnit", category: 'devops', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
+    { name:"Web sockets", category: 'backend', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
+    {name: "Prompt Engineering", category: 'ai-ml', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
 
   ];
 
