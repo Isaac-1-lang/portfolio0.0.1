@@ -15,6 +15,7 @@ export function Projects() {
     { id: 'ai', label: 'AI/ML' },
     { id: 'security', label: 'Security' },
     { id: 'embedded', label: 'Embedded' },
+    { id: 'backend', label: 'Backend' },
   ];
 
   const projects = [
@@ -103,7 +104,7 @@ export function Projects() {
       description: 'It is a platform which is able to connect students with mentors and tutors and help them with their studies and projects',
       tags: ['Spring Boot', 'ReactJS',"Spring Security","PostgreSQL"],
       category: 'web',
-      github: 'https://github.com/Isaac-1-lang/BrainBridge',
+      github: 'https://github.com/Isaac-1-lang/BrainBridge_V2',
       demo: 'https://brainbridge.onrender.com',
     }
   ];
