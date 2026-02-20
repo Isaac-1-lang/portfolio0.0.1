@@ -32,7 +32,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="relative w-48 h-48 mx-auto mb-12"
+            className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto mb-12"
           >
             {/* Rotating Rings */}
             <motion.div
@@ -44,25 +44,25 @@ export function Hero() {
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-4 border-2 border-accent/30 rounded-full"
+              className="absolute inset-4 md:inset-6 border-2 border-accent/30 rounded-full"
               style={{ borderBottomColor: 'hsl(var(--accent))' }}
             />
 
             {/* Profile Image / Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border-2 border-primary/20 shadow-sm overflow-hidden flex items-center justify-center"
+              className="absolute inset-6 md:inset-8 lg:inset-10 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm border-2 border-primary/20 shadow-lg overflow-hidden flex items-center justify-center"
             >
               {/* Light mode: colored logo; Dark mode: white logo */}
               <img
-                src="/logo.png"
-                alt="Logo"
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover block dark:hidden"
+                src="/Isaac.jpg"
+                alt="Profile"
+                className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover block dark:hidden"
               />
               <img
-                src="/logoWhite.png"
-                alt="Logo"
-                className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover hidden dark:block"
+                src="/Isaac.jpg"
+                alt="Profile"
+                className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover hidden dark:block"
               />
             </motion.div>
           </motion.div>

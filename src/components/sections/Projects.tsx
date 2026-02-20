@@ -122,28 +122,28 @@ export function Projects() {
           transition={{ duration: 0.8 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-4xl md:text-5xl font-bold mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
             >
               Featured <span className="bg-gradient-hero bg-clip-text text-transparent">Projects</span>
             </motion.h2>
             <motion.div
               initial={{ width: 0 }}
-              animate={isInView ? { width: "100px" } : {}}
+              animate={isInView ? { width: "120px" } : {}}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="h-1 bg-gradient-hero mx-auto rounded-full"
+              className="h-1 bg-gradient-hero mx-auto rounded-full mb-4"
             />
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
-              className="text-muted-foreground mt-4"
+              className="text-muted-foreground mt-4 text-lg"
             >
-              A selection from 20+ completed projects
+              A curated selection from 20+ completed projects showcasing innovation and technical excellence
             </motion.p>
           </div>
 
@@ -174,45 +174,71 @@ export function Projects() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 + index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="bg-card border border-border rounded-xl overflow-hidden group hover:border-primary hover:shadow-sm transition-all"
+                whileHover={{ 
+                  y: -12,
+                  rotateY: 5,
+                  rotateX: 2,
+                  transition: { duration: 0.3 }
+                }}
+                className="bg-card border border-border rounded-xl overflow-hidden group hover:border-primary hover:shadow-xl hover:shadow-primary/10 transition-all relative"
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                
+                <div className="p-6 relative z-10">
+                  <motion.h3 
+                    className="text-xl font-bold mb-3 group-hover:text-primary transition-colors"
+                    whileHover={{ scale: 1.02 }}
+                  >
                     {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
+                  </motion.h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed group-hover:text-foreground/80 transition-colors">
                     {project.description}
                   </p>
                   
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
+                    {project.tags.map((tag, tagIndex) => (
+                      <motion.span
                         key={tag}
-                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ delay: 0.5 + index * 0.1 + tagIndex * 0.05 }}
+                        whileHover={{ 
+                          scale: 1.1,
+                          y: -2,
+                          backgroundColor: 'hsl(var(--primary))',
+                          color: 'hsl(var(--primary-foreground))',
+                          borderColor: 'hsl(var(--primary))'
+                        }}
+                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 transition-all cursor-default"
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-3">
-                    <a
+                  <div className="flex gap-3 pt-2 border-t border-border/50">
+                    <motion.a
                       href={project.github}
-                      className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
+                      whileHover={{ x: 4 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm hover:text-primary transition-colors font-medium"
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className="h-4 w-4 group-hover:rotate-12 transition-transform" />
                       Code
-                    </a>
-                    <a
+                    </motion.a>
+                    <motion.a
                       href={project.demo}
-                      className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
+                      whileHover={{ x: 4 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 text-sm hover:text-primary transition-colors font-medium"
                     >
-                      <ExternalLink className="h-4 w-4" />
+                      <ExternalLink className="h-4 w-4 group-hover:rotate-12 transition-transform" />
                       Demo
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>

@@ -3,7 +3,6 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Code2, Server, Brain, Shield, Cpu, Palette, Hexagon, Cloud, ExternalLink, Award } from 'lucide-react';
-import { link } from 'fs';
 
 export function Skills() {
   const ref = useRef(null);
@@ -97,21 +96,29 @@ export function Skills() {
           transition={{ duration: 0.8 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-4xl md:text-5xl font-bold mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
             >
               Technical <span className="bg-gradient-hero bg-clip-text text-transparent">Skills</span>
             </motion.h2>
             <motion.div
               initial={{ width: 0 }}
-              animate={isInView ? { width: "100px" } : {}}
+              animate={isInView ? { width: "120px" } : {}}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="h-1 bg-gradient-hero mx-auto rounded-full"
+              className="h-1 bg-gradient-hero mx-auto rounded-full mb-4"
             />
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.5 }}
+              className="text-muted-foreground text-lg max-w-2xl mx-auto"
+            >
+              A comprehensive toolkit spanning full-stack development, AI/ML, cybersecurity, and beyond
+            </motion.p>
           </div>
 
           {/* Category Filter */}
@@ -146,47 +153,86 @@ export function Skills() {
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ delay: index * 0.03, duration: 0.4 }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="bg-card border border-border rounded-xl p-5 hover:border-primary hover:shadow-sm transition-all group"
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  rotateY: 3,
+                  transition: { duration: 0.3 }
+                }}
+                className="bg-card border border-border rounded-xl p-5 hover:border-primary hover:shadow-lg hover:shadow-primary/10 transition-all group relative overflow-hidden"
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <div className="flex justify-between items-start mb-3">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-semibold text-base group-hover:text-primary transition-colors">{skill.name}</h3>
-                      {skill.link && (
-                        <a
-                          href={skill.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          onClick={(e) => e.stopPropagation()}
+                {/* Subtle background glow on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
+                
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <motion.h3 
+                          className="font-semibold text-base group-hover:text-primary transition-colors"
+                          whileHover={{ scale: 1.05 }}
                         >
-                          <ExternalLink className="h-3.5 w-3.5 text-primary" />
-                        </a>
-                      )}
-                      {skill.cert && (
-                        <a
-                          href={skill.cert}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Award className="h-3.5 w-3.5 text-yellow-500" />
-                        </a>
-                      )}
+                          {skill.name}
+                        </motion.h3>
+                        {skill.link && (
+                          <motion.a
+                            href={skill.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="opacity-0 group-hover:opacity-100 transition-opacity"
+                            onClick={(e) => e.stopPropagation()}
+                            whileHover={{ rotate: 15, scale: 1.2 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <ExternalLink className="h-3.5 w-3.5 text-primary" />
+                          </motion.a>
+                        )}
+                        {skill.cert && (
+                          <motion.a
+                            href={skill.cert}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="opacity-0 group-hover:opacity-100 transition-opacity"
+                            onClick={(e) => e.stopPropagation()}
+                            whileHover={{ rotate: 15, scale: 1.2 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <Award className="h-3.5 w-3.5 text-yellow-500" />
+                          </motion.a>
+                        )}
+                      </div>
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground/70 transition-colors">{getSkillLevel(skill.level)}</span>
                     </div>
-                    <span className="text-xs text-muted-foreground">{getSkillLevel(skill.level)}</span>
+                    <motion.span 
+                      className="text-sm text-primary font-semibold"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {skill.level}%
+                    </motion.span>
                   </div>
-                  <span className="text-sm text-primary font-semibold">{skill.level}%</span>
-                </div>
-                <div className="relative h-2 bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={isInView ? { width: `${skill.level}%` } : {}}
-                    transition={{ delay: 0.5 + index * 0.03, duration: 0.8, ease: "easeOut" }}
-                    className={`absolute top-0 left-0 h-full bg-gradient-to-r ${skill.color} rounded-full`}
-                  />
+                  <div className="relative h-2.5 bg-secondary rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: `${skill.level}%` } : {}}
+                      transition={{ delay: 0.5 + index * 0.03, duration: 0.8, ease: "easeOut" }}
+                      className={`absolute top-0 left-0 h-full bg-gradient-to-r ${skill.color} rounded-full shadow-sm group-hover:shadow-md transition-shadow`}
+                    >
+                      {/* Animated shimmer effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        animate={{
+                          x: ['-100%', '100%'],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </motion.div>
             ))}
