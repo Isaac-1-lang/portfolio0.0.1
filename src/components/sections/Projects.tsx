@@ -106,7 +106,23 @@ export function Projects() {
       category: 'web',
       github: 'https://github.com/Isaac-1-lang/BrainBridge_V2',
       demo: 'https://brainbridge.onrender.com',
-    }
+    },
+    {
+      title: 'Tuganire',
+      description: 'It is a mobile app which will be able to create a smooth supply chain between house holders and recycling companies in collecting and recycling wastes',
+      tags: ['Web sockets', 'JSP', 'Java',"Protocol-based"],
+      category: 'web',
+      github: 'https://github.com/Isaac-1-lang/Green-IQ',
+      demo: '#',
+    },
+    {
+      title: 'Imboni',
+      description: 'It is a mobile app which will be used by creaters, owners and others to be able tto make live management of their online Intellectual properties in order to prevent infringement and other related issues',
+      tags: ['React Native', 'SSE', 'Tensorflow',"Google Maps"],
+      category: 'Mobile',
+      github: 'https://github.com/Isaac-1-lang/Green-IQ',
+      demo: '#',
+    },
   ];
 
   const filteredProjects = activeFilter === 'all'
