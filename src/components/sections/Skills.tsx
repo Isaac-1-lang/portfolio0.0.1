@@ -75,6 +75,7 @@ export function Skills() {
     { name:"JUnit", category: 'devops', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
     { name:"Web sockets", category: 'backend', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
     {name: "Prompt Engineering", category: 'ai-ml', level: 30, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
+    {name: "Internet Of Things", category: 'Embedded', level: 60, color: 'from-sky-500 to-blue-500', link: '', cert: '' },
 
   ];
 

@@ -121,7 +121,15 @@ export function Projects() {
       tags: ['React Native', 'SSE', 'Tensorflow',"Google Maps"],
       category: 'Mobile',
       github: 'https://github.com/Isaac-1-lang/Green-IQ',
-      demo: '#',
+      demo: 'https://greeniq-planet.vercel.app/',
+    },
+    {
+      title: 'Intore',
+      description: 'It is a web app which should be used in small,medium and large scale companies to use AI tools while recruiting or hiring junior talents without spending much time or reading their resumes by using AI as an integrated part to make quick screening and instread use time while making decisions',
+      tags: ["NextJS","AI Engineering","ExpressJS","Prompt Engineering"],
+      category: 'web',
+      github: 'https://github.com/Ubwenge-Squad/Frontend_Service',
+      demo: 'aintore.vercel.app',
     },
   ];
 
