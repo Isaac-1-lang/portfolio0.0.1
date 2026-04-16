@@ -1,4 +1,5 @@
 import { Navigation } from '@/components/Navigation';
+import { ChatBot } from '@/components/ChatBot';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Skills } from '@/components/sections/Skills';
@@ -81,6 +82,7 @@ const Index = () => {
             </p>
           </div>
         </footer>
+        <ChatBot />
       </div>
     </ThemeProvider>
   );

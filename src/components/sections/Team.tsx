@@ -1,166 +1,57 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Github, Linkedin, Globe, Twitter } from 'lucide-react';
+import { Quote } from 'lucide-react';
 
-type Collaborator = {
+type Testimonial = {
   name: string;
   role: string;
-  avatar: string; // public path or remote URL
-  links: Partial<{
-    github: string;
-    linkedin: string;
-    x: string;
-    website: string;
-  }>;
-  contributions: string[]; // brief bullets of what you built together
-  projects: string[]; // project names/areas
+  avatar: string;
+  quote: string;
 };
 
-const collaborators: Collaborator[] = [
-  
-  {
-    name: 'Happy David',
-    role: 'Communication and Team work skills',
-    avatar: '/download.jpeg',
-    links: {
-      github: 'https://github.com/gravityz0',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x: 'https://www.instagram.com/direct/t/17844646124815562/',
-      website: '',
-    },
-    contributions: ['Smart work', 'Collaboration'],
-    projects: ['School courses'],
-  },
-  {
-    name: 'RUKUNDO Furaha Divin',
-    role: 'Full Stack Developper',
-    avatar: '/download.jpeg',
-    links: {
-      github: 'https://github.com/gravityz0',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x: 'https://www.instagram.com/direct/t/17844646124815562/',
-      website: '',
-    },
-    contributions: ['Backend Development', 'Integration'],
-    projects: ['Green IQ', 'ShopShere'],
-  },
-  {
-    name: 'IZERE Joshua',
-    role: 'Backend Developper',
-    avatar: '/joshua.png',
-    links: {
-      github: 'https://github.com/I-Josh-pro-grammin',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x:'https://www.instagram.com/izerejoshua25/'
-    },
-    contributions: ['Backend Development', 'DevOps'],
-    projects: ['Brainly-Code'],
-  },
-  ,
-  {
-    name: 'BYIRINGIRO Aloys',
-    role: 'Full stack Developper & Gamer',
-    avatar: '/aloys.png',
-    links: {
-      github: 'https://github.com/Byiringiro-Aloys',
-      linkedin: 'https://www.linkedin.com/in/byiringiro-aloys-895781373/',
-      x:'https://www.instagram.com/_b_aloys/'
-    },
-    contributions: ['Backend Development', 'DevOps'],
-    projects: ['Brainly-Code'],
-  },
-  ,
-  {
-    name: 'UWASE Sonia',
-    role: 'Frontend Developper & Designer',
-    avatar: '/sonia.png',
-    links: {
-      github: 'https://github.com/I-Josh-pro-grammin',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x:'https://www.instagram.com/___sonia16/'
-    },
-    contributions: ['Backend Development', 'DevOps'],
-    projects: ['Brainly-Code'],
-  },
-  ,
-  {
-    name: 'UWASE UTUJE Sandrine',
-    role: 'Full Stack Developper & Designer',
-    avatar: '/sandrine.png',
-    links: {
-      github: 'https://github.com/utujesandrine456',
-      linkedin: 'https://www.linkedin.com/in/uwase-utuje-sandrine-5842b8386/',
-      x:'https://www.instagram.com/utuje_001/'
-    },
-    contributions: ['Backend Development', 'DevOps'],
-    projects: ['Brainly-Code'],
-  },
-  ,
-  {
-    name: 'Abayo Hirwa Jovin',
-    role: 'Backend Developper',
-    avatar: '/logoWhite.png',
-    links: {
-      github: 'https://github.com/AbayoHJovin',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x:'https://www.instagram.com/izerejoshua25/'
-    },
-    contributions: ['Backend & Frontend Development', 'DevOps'],
-    projects: ['Brainly-Code'],
-  },
-  ,
-  {
-    name: 'BAZIRAMWABO Gabriel',
-    role: 'Instructor at Rwanda Coding Academy',
-    avatar: '/logo.png',
-    links: {
-      github: 'https://github.com/I-Josh-pro-grammin',
-      linkedin: 'https://www.linkedin.com/in/gabriel-baziramwabo-a00a8430/',
-      x:'https://www.instagram.com/izerejoshua25/'
-    },
-    contributions: ['Backend Development', 'DevOps'],
-    projects: ['Yolov8',"AI/ML mentorship","Embedded Systems"],
-  },
-  ,
+const testimonials: Testimonial[] = [
   {
     name: 'RWAGAJU Aphoridice',
     role: 'Instructor at Rwanda Coding Academy',
     avatar: '/legend.png',
-    links: {
-      github: 'https://github.com/I-Josh-pro-grammin',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x:'https://www.instagram.com/izerejoshua25/'
-    },
-    contributions: ['Connection Support', 'e_15th Iconic contest'],
-    projects: ['Green IQ'],
+    quote:
+      'Isaac demonstrated exceptional problem-solving skills during the e_15th Iconic contest. His ability to connect ideas and deliver under pressure is truly remarkable.',
   },
-  ,
   {
-    name: 'UHIRIWE Chrisostom',
-    role: 'Full Stack Developper & Gamer',
-    avatar: '/chrysostom.png',
-    links: {
-      github: 'https://github.com/I-Josh-pro-grammin',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x:'https://www.instagram.com/u.h.i.r.i.w.e___/'
-    },
-    contributions: ['Backend Development', 'Model Fine tuning'],
-    projects: ['Ciphera'],
+    name: 'BAZIRAMWABO Gabriel',
+    role: 'Instructor at Rwanda Coding Academy',
+    avatar: '/logo.png',
+    quote:
+      'Working with Isaac on AI/ML and Embedded Systems projects was a pleasure. He grasps complex concepts quickly and applies them with precision.',
   },
   {
     name: 'Aime Mellevieux',
-    role: 'Client(Brightforth LTD CEO)',
+    role: 'CEO, Brightforth LTD',
     avatar: '/chrysostom.png',
-    links: {
-      github: 'https://github.com/I-Josh-pro-grammin',
-      linkedin: 'https://www.linkedin.com/in/rukundo-furaha-divin-73b574381/',
-      x:'https://www.instagram.com/u.h.i.r.i.w.e___/'
-    },
-    contributions: ['Providing resources', 'Giving feedback'],
-    projects: ['WorkConnect','Intego Office'],
+    quote:
+      'Isaac delivered WorkConnect and Intego Office beyond our expectations. Professional, reliable, and always open to feedback — a true asset to any project.',
   },
-  
+  {
+    name: 'IZERE Joshua',
+    role: 'Backend Developer',
+    avatar: '/joshua.png',
+    quote:
+      'Collaborating with Isaac on Brainly-Code was smooth and productive. His technical depth and team spirit make him a great partner to build with.',
+  },
+  {
+    name: 'UWASE UTUJE Sandrine',
+    role: 'Full Stack Developer & Designer',
+    avatar: '/sandrine.png',
+    quote:
+      'Isaac brings both creativity and structure to every project. His dedication to clean code and great UX really elevates the final product.',
+  },
+  {
+    name: 'UHIRIWE Chrisostom',
+    role: 'Full Stack Developer',
+    avatar: '/chrysostom.png',
+    quote:
+      'Isaac\'s work on Ciphera, especially the model fine-tuning side, was impressive. He dives deep and always finds elegant solutions.',
+  },
 ];
 
 export function Team() {
@@ -183,8 +74,16 @@ export function Team() {
               transition={{ delay: 0.2 }}
               className="text-4xl md:text-5xl font-bold mb-4"
             >
-              Collaboration <span className="bg-gradient-hero bg-clip-text text-transparent">& Teamwork</span>
+              What People <span className="bg-gradient-hero bg-clip-text text-transparent">Say</span>
             </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.3 }}
+              className="text-muted-foreground max-w-xl mx-auto mb-4"
+            >
+              Feedback from collaborators, mentors, and clients I've had the pleasure of working with.
+            </motion.p>
             <motion.div
               initial={{ width: 0 }}
               animate={isInView ? { width: '120px' } : {}}
@@ -195,69 +94,33 @@ export function Team() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {collaborators.map((c, idx) => (
+            {testimonials.map((t, idx) => (
               <motion.div
-                key={c.name}
+                key={t.name}
                 initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + idx * 0.08 }}
+                transition={{ delay: 0.2 + idx * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary hover:shadow-sm transition-all"
+                className="bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-sm transition-all flex flex-col gap-4"
               >
-                <div className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <img src={c.avatar} alt={c.name} className="w-14 h-14 rounded-full object-cover" />
-                    <div>
-                      <h3 className="text-lg font-semibold">{c.name}</h3>
-                      <p className="text-sm text-muted-foreground">{c.role}</p>
-                    </div>
-                  </div>
+                {/* Quote icon */}
+                <Quote className="w-8 h-8 text-primary opacity-60" />
 
-                  {/* Contributions */}
-                  <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                    {c.contributions.map((line) => (
-                      <li key={line} className="flex items-start gap-2">
-                        <span className="text-primary mt-1">▸</span>
-                        <span>{line}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Quote text */}
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+                  "{t.quote}"
+                </p>
 
-                  {/* Projects Badges */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {c.projects.map((p) => (
-                      <span key={p} className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-                        {p}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex gap-3">
-                    {c.links.github && (
-                      <a href={c.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                         className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#181717] text-white hover:opacity-90 transition-opacity">
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                    {c.links.linkedin && (
-                      <a href={c.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                         className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0A66C2] text-white hover:opacity-90 transition-opacity">
-                        <Linkedin className="w-4 h-4" />
-                      </a>
-                    )}
-                    {c.links.x && (
-                      <a href={c.links.x} target="_blank" rel="noopener noreferrer" aria-label="X"
-                         className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-black text-white hover:opacity-90 transition-opacity">
-                        <Twitter className="w-4 h-4" />
-                      </a>
-                    )}
-                    {c.links.website && (
-                      <a href={c.links.website} target="_blank" rel="noopener noreferrer" aria-label="Website"
-                         className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#6B7280] text-white hover:opacity-90 transition-opacity">
-                        <Globe className="w-4 h-4" />
-                      </a>
-                    )}
+                {/* Author */}
+                <div className="flex items-center gap-3 pt-2 border-t border-border">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
                   </div>
                 </div>
               </motion.div>
@@ -270,5 +133,3 @@ export function Team() {
 }
 
 export default Team;
-
-
