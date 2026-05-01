@@ -5,6 +5,7 @@ import { About } from '@/components/sections/About';
 import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { Achievements } from '@/components/sections/Achievements';
+import { Resume } from '@/components/sections/Resume';
 import { Contact } from '@/components/sections/Contact';
 import { Team } from '@/components/sections/Team';
 import { ThemeProvider } from '@/contexts/ThemeContext';
@@ -38,6 +39,7 @@ const Index = () => {
         <Skills />
         <Projects />
         <Achievements />
+        <Resume />
         <Team />
         <Contact />
         
